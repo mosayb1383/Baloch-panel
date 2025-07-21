@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بلوچ گیمینگ | DNS + WireGuard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="glass-panel" id="loginPanel">
+        <h1>ورود به پنل بلوچ گیمینگ</h1>
+        <input type="text" id="username" placeholder="نام کاربری" />
+        <input type="password" id="password" placeholder="رمز عبور" />
+        <button onclick="login()">ورود</button>
+        <p id="loginError" style="color:red; display:none">نام کاربری یا رمز اشتباه است.</p>
+    </div>
+    
+    <div class="glass-panel hidden" id="mainPanel">
+        <h1>بلوچ گیمینگ</h1>
+        <select id="country">
+            <option value="ae">ترکیه</option>
+            <option value="de1">آلمان</option>
+            <option value="fi">فنلاند</option>
+            <option value="de2">آلمان دوم</option>
+            <option value="de3">آلمان سوم</option>
+        </select>
+        <input type="number" id="storage" placeholder="حجم (گیگ) از 0 تا 1000" min="0" max="1000" />
+        <input type="number" id="days" placeholder="مدت (روز) از 0 تا 500" min="0" max="500" />
+        <select id="operator">
+            <option>همراه اول</option>
+            <option>ایرانسل</option>
+            <option>رایتل</option>
+            <option>وای‌فای شاتل</option>
+        </select>
+        <select id="game">
+            <option>پابجی</option>
+            <option>کالاف دیوتی</option>
+            <option>کلش</option>
+            <option>فری فایر</option>
+        </select>
+        <input type="number" id="users" placeholder="چند کاربره؟" min="1" max="100" />
+        <input type="text" id="configName" placeholder="نام شما برای کانفیگ" />
+        <button onclick="generateDNS()">تولید DNS</button>
+        <button onclick="generateWireguard()">تولید کانفیگ WireGuard</button>
+        <p id="output"></p>
+        <a id="downloadLink" style="display:none" download="config.txt">دانلود فایل</a>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
